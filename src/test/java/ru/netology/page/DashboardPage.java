@@ -35,7 +35,6 @@ public class DashboardPage {
         button.last().click();
         return new MoneyTransferPage();
     }
-
     public int getCard1Balance() {
         String text = fieldFirstCard.getText();
         val start = text.indexOf(balanceStart);
