@@ -14,6 +14,7 @@ public class MoneyTransferPage {
     protected SelenideElement from = $("[data-test-id=\"from\"] input");
     protected SelenideElement to = $("[data-test-id=\"to\"]");
     protected SelenideElement resumeButton = $("[data-test-id=\"action-transfer\"]");
+    protected SelenideElement error = $("[data-test-id=\"error-notification\"]");
 
     public MoneyTransferPage() {
         heading.shouldBe(Condition.visible);
@@ -23,6 +24,10 @@ public class MoneyTransferPage {
         resumeButton.shouldBe(Condition.visible);
     }
 
+    public void error() {
+        error.shouldBe(Condition.visible);
+    }
+
     public void transfer(int amount, String cardNumber) {
         sum.sendKeys(Keys.CONTROL, "a", Keys.DELETE);
         sum.val(String.valueOf(amount));
@@ -30,7 +35,6 @@ public class MoneyTransferPage {
         from.val(cardNumber);
         resumeButton.click();
     }
-
 
 
 }
